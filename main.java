@@ -1,16 +1,20 @@
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Scanner;
-import java.util.Stack;
 public class main{
-    public static void printStack(Stack<String> ss){
-        Stack<String> sg = (Stack<String>) ss.clone();
-        while (!sg.isEmpty()){
-            System.out.print(" " + sg.pop());
-        }
-        System.out.println();
-    }
+    // public static void printStack(ArrayList<String> ss){
+        
+    // ArrayList<String> sg = (ArrayList<String>) ss.clone();
+    
+    //     while (!sg.isEmpty()){
+    //         System.out.print(" " + sg.pop());
+    //     }
+    //     System.out.println();
+        
+    // }
+    
     public static void printQueue(Queue<String> queue){
         for (String num : queue){
             System.out.print(num + " ");
@@ -24,11 +28,11 @@ public class main{
     input.nextLine();
     String name, priority = null;
     PriorityQueue<String> pq = new PriorityQueue<>();
-    Stack<String> newst = new Stack<>();
+    ArrayList<String> newst = new ArrayList<>();
     for (int i = 0; i < total; i++) {
         System.out.println("Enter Patient Name: ");
         name = input.nextLine();
-        newst.push(name);
+        newst.add(name);
 
         System.out.println("Is This Patient a Priority? (Y/N)");
         char status = input.next().charAt(0);
@@ -38,8 +42,8 @@ public class main{
         }
         
     }
-    System.out.println("The List of Patents Treated: ");
-    printStack(newst);
+    System.out.println("The List of Patients Treated: ");
+    System.err.println(newst);
 
     Queue<String> newQueue = new LinkedList<>();
     //enqueue
@@ -51,9 +55,9 @@ public class main{
     
 
     //Dequeue
-    newQueue.poll();
-    System.out.print("The queue after enqueue: ");
-    printQueue(newQueue);
+    //newQueue.poll();
+    //System.out.print("The queue after enqueue: ");
+    //printQueue(newQueue);
 
     //Peek front queue
     System.out.println("The front is: " + newQueue.peek());
