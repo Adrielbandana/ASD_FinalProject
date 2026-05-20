@@ -21,6 +21,33 @@ public class main{
         }
         System.out.println();
     }
+
+    public static void newEntry(ArrayList<String> stack, PriorityQueue<String> queue){
+        System.err.println("Do you want to enter new patients (Y/N): ");
+        String name = null;
+        Scanner input = new Scanner(System.in); 
+        char check = input.next().charAt(0);
+        input.nextLine();
+        if (check == 'y' || check == 'Y'){
+            System.out.println("How Many Patients? : ");
+            int total = input.nextInt();
+            input.nextLine();
+            for (int j = 0; j < total ; j++){
+            System.out.println("Enter Patient Name: ");
+            name = input.nextLine();
+            stack.add(name);
+
+            System.out.println("Is This Patient a Priority? (Y/N)");
+            char status = input.next().charAt(0);
+            input.nextLine();
+            if (status == 'y' || status == 'Y'){
+                queue.add(name);
+        }                
+            }
+        }
+    }
+
+
     public static void main(String[] args){
     Scanner input = new Scanner(System.in);  // Create a Scanner object
     System.out.println("Enter Total Patients: ");
@@ -63,5 +90,9 @@ public class main{
     System.out.println("The front is: " + newQueue.peek());
     System.out.println("The Priorities are: ");
     printQueue(pq);
+
+    newEntry(newst, pq);
+    System.out.println("The List of Patients Treated: ");
+    System.err.println(newst);
     }
 }
